@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'lib-fruits',
+  selector: 'lib-form',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './fruits.component.html',
-  styleUrl: './fruits.component.css',
+  templateUrl: './form.component.html',
 })
-export class FruitsComponent {}
+export class FormComponent {}
