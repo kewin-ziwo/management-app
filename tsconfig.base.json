@@ -16,7 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@management-app/fruits/shell": ["libs/fruits/shell/src/index.ts"],
-      "@management-app/fruits/ui": ["libs/fruits/ui/src/index.ts"]
+      "@management-app/fruits/ui": ["libs/fruits/ui/src/index.ts"],
+      "@management-app/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ],
+      "@management-app/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
