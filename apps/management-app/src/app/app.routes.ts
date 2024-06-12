@@ -1,16 +1,8 @@
 import { Route } from '@angular/router';
-import { AppComponent } from './app.component';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    component: AppComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () =>
-          import('@management-app/fruits/shell').then((m) => m.routes),
-      },
-    ],
-  },
+    loadChildren: () => import('./template/template.route').then(m => m.TEMPLATE_ROUTES),
+  }
 ];
