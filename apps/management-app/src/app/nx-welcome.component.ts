@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="h-dvh bg-green-300 flex items-center justify-center">
+    <div class="bg-green-300 flex items-center justify-center">
       <h1 class="text-5xl">HELLO</h1>
     </div>
   `,
