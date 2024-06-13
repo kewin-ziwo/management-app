@@ -8,7 +8,11 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      // fontFamily: {
+      //   libre: ['"Raleway"'],
+      // },
+    },
   },
   plugins: [],
 };

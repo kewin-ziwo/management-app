@@ -7,6 +7,11 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './template.component.html',
-  styles: ``,
+  styles: `
+    :host{
+      display: block;
+      height: 100%;
+    }
+  `,
 })
 export class TemplateComponent {}
