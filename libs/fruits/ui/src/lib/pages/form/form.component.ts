@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormState, TextInputComponent } from '@management-app/shared/ui';
+import { ButtonComponent, FormState, TextInputComponent } from '@management-app/shared/ui';
 import {
   FormBuilder,
   FormControl,
@@ -18,7 +18,7 @@ import { FruitService } from '@management-app/fruits/api';
 @Component({
   selector: 'lib-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextInputComponent],
+  imports: [CommonModule, ReactiveFormsModule, TextInputComponent, ButtonComponent],
   templateUrl: './form.component.html',
 })
 export class FormComponent {

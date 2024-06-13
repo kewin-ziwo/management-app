@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 export class ButtonComponent {
   handleClick = output<EventEmitter<any>>();
   disabled = input(false)
+  type = input('text')
 
   onClick(e: any) {
     this.handleClick.emit(e);
