@@ -1,11 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  ApiService,
   LoadingService,
   Fruit,
 } from '@management-app/shared/data-access';
 import { ActivatedRoute } from '@angular/router';
+import { FruitService } from '@management-app/fruits/api';
 
 @Component({
   selector: 'lib-fruit',
@@ -15,9 +15,9 @@ import { ActivatedRoute } from '@angular/router';
   styles: ``,
 })
 export class FruitComponent implements OnInit {
-  ApiService = inject(ApiService);
   LoadingService = inject(LoadingService);
   ActivatedRoute = inject(ActivatedRoute);
+  FruitService = inject(FruitService);
 
   fruit: Fruit | null = null;
 
@@ -30,7 +30,7 @@ export class FruitComponent implements OnInit {
     if (!fruitId) return;
     const _this = this;
     _this.LoadingService.loadingOn();
-    const getObs$ = _this.ApiService.getOne<Fruit>(fruitId);
+    const getObs$ = _this.FruitService.getOne(fruitId);
     getObs$.subscribe({
       next(data) {
         _this.fruit = data;

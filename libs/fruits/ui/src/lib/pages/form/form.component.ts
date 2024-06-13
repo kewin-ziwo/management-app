@@ -9,7 +9,6 @@ import {
   Validators,
 } from '@angular/forms';
 import {
-  ApiService,
   Fruit,
   LoadingService,
 } from '@management-app/shared/data-access';
@@ -24,7 +23,6 @@ import { FruitService } from '@management-app/fruits/api';
 })
 export class FormComponent {
   FormBuilder = inject(FormBuilder);
-  ApiService = inject(ApiService);
   ActivatedRoute = inject(ActivatedRoute);
   LoadingService = inject(LoadingService);
   Router = inject(Router);
@@ -45,7 +43,7 @@ export class FormComponent {
   loadFruit(fruitId: string) {
     const _this = this;
     _this.LoadingService.loadingOn();
-    const getObs$ = _this.ApiService.getOne<Fruit>(fruitId);
+    const getObs$ = _this.FruitService.getOne(fruitId);
     getObs$.subscribe({
       next(data) {
         _this.fruit = data;
@@ -108,7 +106,7 @@ export class FormComponent {
     if (!this.fruit) return;
     const _this = this;
     _this.LoadingService.loadingOn();
-    const postObs$ = this.ApiService.put<Fruit>(
+    const postObs$ = this.FruitService.put(
       this.fruit.id.toString(),
       this.form.value
     );

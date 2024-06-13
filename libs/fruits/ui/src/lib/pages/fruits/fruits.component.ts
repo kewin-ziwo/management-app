@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService, LoadingService } from '@management-app/shared/data-access';
+import { LoadingService } from '@management-app/shared/data-access';
 import { Fruit } from 'libs/shared/data-access/src/lib/types/fruit';
 import { Router } from '@angular/router';
 import { FruitService } from '@management-app/fruits/api';
@@ -12,7 +12,6 @@ import { FruitService } from '@management-app/fruits/api';
   templateUrl: './fruits.component.html',
 })
 export class FruitsComponent implements OnInit {
-  ApiService = inject(ApiService);
   LoadingService = inject(LoadingService);
   Router = inject(Router);
   FruitService = inject(FruitService);
@@ -55,7 +54,7 @@ export class FruitsComponent implements OnInit {
   onDeleteFruitClick(fruit: Fruit) {
     const _this = this;
     _this.LoadingService.loadingOn();
-    const getObs$ = _this.ApiService.delete<Fruit[]>(fruit.id.toString());
+    const getObs$ = _this.FruitService.delete(fruit.id.toString());
     getObs$.subscribe({
       next(data) {
         _this.fruits = [...data];

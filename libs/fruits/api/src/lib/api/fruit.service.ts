@@ -12,7 +12,19 @@ export class FruitService {
     return this.ApiService.get<Fruit[]>('fruits');
   }
 
+  public getOne(fruitId: string): Observable<Fruit> {
+    return this.ApiService.getOne<Fruit>('fruits', fruitId);
+  }
+
   public post(fruit: Fruit): Observable<Fruit> {
     return this.ApiService.post<Fruit>('fruits', fruit);
+  }
+
+  public put(id: string, fruit: Fruit): Observable<Fruit> {
+    return this.ApiService.put<Fruit>('fruits', id, fruit);
+  }
+
+  public delete(id: string): Observable<Fruit[]> {
+    return this.ApiService.delete<Fruit[]>('fruits', id);
   }
 }
