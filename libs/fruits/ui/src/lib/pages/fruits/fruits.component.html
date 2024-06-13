@@ -1,1 +1,35 @@
-<p>fruits list works!</p>
+<button class="border p-2" (click)="onAddFruitClick()">Add fruit</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Scientific Name</th>
+      <th>Color</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (fruit of fruits; track fruit.id; let idx = $index, let e = $even) {
+    <tr>
+      <td>{{ fruit.name }}</td>
+      <td>{{ fruit.scientificName }}</td>
+      <td>{{ fruit.color }}</td>
+      <td>{{ fruit.pricePerKg }}</td>
+      <td>
+        <button (click)="onViewFruitClick(fruit)">
+          <i class="material-symbols-outlined text-xl">visibility</i>
+        </button>
+        <button class="mx-2" (click)="onEditFruitClick(fruit)">
+          <i class="material-symbols-outlined text-xl">edit</i>
+        </button>
+        <button (click)="onDeleteFruitClick(fruit)">
+          <i class="material-symbols-outlined text-xl">delete</i>
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

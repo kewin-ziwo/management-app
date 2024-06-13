@@ -1,1 +1,15 @@
-<p>form works!</p>
+@if(formState === FormState.ADD){
+    <h1>Add Fruit</h1>
+}
+
+@if(formState === FormState.EDIT){
+    <h1>Edit Fruit</h1>
+}
+
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+  <lib-text-input label="Name" [control]="getControl('name')" id="name-inp"/>
+  <lib-text-input label="Scientific Name" [control]="getControl('scientificName')" id="name-inp"/>
+  <lib-text-input label="Color" [control]="getControl('color')" id="name-inp"/>
+  <lib-text-input label="Price" [control]="getControl('pricePerKg')" id="name-inp"/>
+  <button type="submit" class="border p-2" [disabled]="!form.valid">Submit</button>
+</form>

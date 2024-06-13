@@ -1,0 +1,17 @@
+<div class="flex flex-col">
+  <label [for]="id()">{{ label() }}</label>
+  <input
+    type="text"
+    class="form-control"
+    [id]="id()"
+    [formControl]="control()"
+    [attr.placeholder]="label()"
+    class="border p-2 rounded outline-none"
+    [class.border-red-500]="control().invalid && control().touched"
+  />
+  @if(control().invalid && control().touched){ 
+    @for (error of control().errors | keyvalue; track error.key; let idx = $index, let e = $even) {
+      <div class="text-red-500 text-sm">{{errorMessages[error.key]}}</div>
+    } 
+  }
+</div>
