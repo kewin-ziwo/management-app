@@ -37,10 +37,10 @@ export class FormComponent {
   ngOnInit() {
     const fruitId = this.ActivatedRoute.snapshot.params['id'] || null;
     this.formState = fruitId ? FormState.EDIT : FormState.ADD;
-    if (this.formState === FormState.EDIT) this.loadFruits(fruitId);
+    if (this.formState === FormState.EDIT) this.loadFruit(fruitId);
   }
 
-  loadFruits(fruitId: string) {
+  loadFruit(fruitId: string) {
     const _this = this;
     _this.LoadingService.loadingOn();
     const getObs$ = _this.ApiService.getOne<Fruit>(fruitId);

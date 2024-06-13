@@ -22,4 +22,11 @@ export const routes: Routes = [
                 (c) => c.FormComponent
             ),
     },
+    {
+        path: 'fruit/:id',
+        loadComponent: () =>
+            import('./pages/fruit/fruit.component').then(
+                (c) => c.FruitComponent
+            ),
+    },
 ];

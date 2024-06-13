@@ -40,7 +40,9 @@ export class FruitsComponent implements OnInit {
     this.Router.navigate(['add-fruit']);
   }
 
-  onViewFruitClick(fruit: Fruit) {}
+  onViewFruitClick(fruit: Fruit) {
+    this.Router.navigate(['fruit', fruit.id]);
+  }
 
   onEditFruitClick(fruit: Fruit) {
     this.Router.navigate(['edit-fruit', fruit.id]);
