@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, input, output } from '@angular/core';
+import { Component, OnInit, forwardRef, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,

@@ -4,11 +4,12 @@ import { LoadingService } from '@management-app/shared/data-access';
 import { Fruit } from 'libs/shared/data-access/src/lib/types/fruit';
 import { Router } from '@angular/router';
 import { FruitService } from '@management-app/fruits/api';
+import { ButtonComponent } from '@management-app/shared/ui';
 
 @Component({
   selector: 'lib-fruits',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './fruits.component.html',
 })
 export class FruitsComponent implements OnInit {
