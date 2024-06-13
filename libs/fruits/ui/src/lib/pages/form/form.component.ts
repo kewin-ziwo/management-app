@@ -14,6 +14,7 @@ import {
   LoadingService,
 } from '@management-app/shared/data-access';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FruitService } from '@management-app/fruits/api';
 
 @Component({
   selector: 'lib-form',
@@ -27,6 +28,7 @@ export class FormComponent {
   ActivatedRoute = inject(ActivatedRoute);
   LoadingService = inject(LoadingService);
   Router = inject(Router);
+  FruitService = inject(FruitService);
 
   FormState = FormState;
   formState: FormState | null = null;
@@ -88,7 +90,7 @@ export class FormComponent {
   saveNewFruit() {
     const _this = this;
     _this.LoadingService.loadingOn();
-    const postObs$ = this.ApiService.post<Fruit>({
+    const postObs$ = this.FruitService.post({
       id: Math.round(Math.random() * 10000000000),
       ...this.form.value,
     });

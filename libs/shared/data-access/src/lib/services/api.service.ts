@@ -7,18 +7,18 @@ import { Observable, delay, of } from 'rxjs';
 export class ApiService {
   constructor() {}
 
-  public get<T>(): Observable<T> {
-    const fruits = JSON.parse((localStorage.getItem('fruits') as any) || []);
-    return of<T>(fruits as T).pipe(delay(1000));
+  public get<T>(key: string): Observable<T> {
+    const dbData = JSON.parse((localStorage.getItem(key) as any) || []);
+    return of<T>(dbData as T).pipe(delay(1000));
   }
 
-  public post<T>(data: T): Observable<T> {
-    const fruits = JSON.parse(
-      (localStorage.getItem('fruits') as any) || []
+  public post<T>(key: string, data: T): Observable<T> {
+    const dbData = JSON.parse(
+      (localStorage.getItem(key) as any) || []
     ) as T[];
-    fruits.push(data);
-    localStorage.setItem('fruits', JSON.stringify(fruits));
-    return of<T>(fruits as T).pipe(delay(1000));
+    dbData.push(data);
+    localStorage.setItem(key, JSON.stringify(dbData));
+    return of<T>(dbData as T).pipe(delay(1000));
   }
 
   public getOne<T>(id: string): Observable<T> {

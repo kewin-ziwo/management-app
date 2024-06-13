@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ApiService, LoadingService } from '@management-app/shared/data-access';
 import { Fruit } from 'libs/shared/data-access/src/lib/types/fruit';
 import { Router } from '@angular/router';
+import { FruitService } from '@management-app/fruits/api';
 
 @Component({
   selector: 'lib-fruits',
@@ -14,6 +15,7 @@ export class FruitsComponent implements OnInit {
   ApiService = inject(ApiService);
   LoadingService = inject(LoadingService);
   Router = inject(Router);
+  FruitService = inject(FruitService);
 
   fruits: Fruit[] = [];
 
@@ -22,11 +24,13 @@ export class FruitsComponent implements OnInit {
   }
 
   loadFruits() {
+    this.FruitService.get()
     const _this = this;
     _this.LoadingService.loadingOn();
-    const getObs$ = _this.ApiService.get<Fruit[]>();
+    const getObs$ = _this.FruitService.get();
     getObs$.subscribe({
       next(data) {
+        console.log(data)
         _this.fruits = data;
       },
       complete() {
