@@ -29,4 +29,11 @@ export const routes: Routes = [
                 (c) => c.FruitComponent
             ),
     },
+    {
+        path: 'compare',
+        loadComponent: () =>
+            import('./pages/compare/compare.component').then(
+                (c) => c.CompareComponent
+            ),
+    },
 ];

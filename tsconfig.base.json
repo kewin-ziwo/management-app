@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@management-app/fruits/data-access": ["libs/fruits/data-access/src/index.ts"],
       "@management-app/fruits/api": ["libs/fruits/api/src/index.ts"],
       "@management-app/fruits/shell": ["libs/fruits/shell/src/index.ts"],
       "@management-app/fruits/ui": ["libs/fruits/ui/src/index.ts"],
