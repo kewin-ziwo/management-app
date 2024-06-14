@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { LoadingService } from '@management-app/shared/data-access';
 import { Fruit } from 'libs/shared/data-access/src/lib/types/fruit';
 import { Router } from '@angular/router';
-import { FruitService } from '@management-app/fruits/api';
+import { FruitFacadeService, FruitService } from '@management-app/fruits/api';
 import { ButtonComponent } from '@management-app/shared/ui';
 import { Store } from '@ngrx/store';
-import { addFruit } from 'libs/fruits/data-access/src/lib/+store/fruit.actions';
 
 @Component({
   selector: 'lib-fruits',
@@ -20,23 +19,22 @@ export class FruitsComponent implements OnInit {
   FruitService = inject(FruitService);
 
   private readonly store: Store = inject(Store);
+  private readonly fruitsFacade: FruitFacadeService =
+    inject(FruitFacadeService);
 
   fruits: Fruit[] = [];
 
   ngOnInit(): void {
     this.loadFruits();
 
-    this.store.dispatch(
-      addFruit({
-        fruit: {
-          color: 'a',
-          name: 'b',
-          scientificName: 'c',
-          id: 111111,
-          pricePerKg: '20',
-        },
-      })
-    );
+    this.fruitsFacade.addFruit({
+      color: 'vvv',
+      name: 'bbbb',
+      scientificName: 'tttt',
+      id: 222222,
+      pricePerKg: '40',
+    });
+
   }
 
   loadFruits() {
