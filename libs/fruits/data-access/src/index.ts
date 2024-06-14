@@ -1,1 +1,5 @@
-export * from './lib/data-access/data-access.component';
+export * from './lib/+store/fruit.reducer';
+export * from './lib/+store/fruit.effects';
+export * from './lib/+store/fruit.reducer';
+export * from './lib/+store/fruit.selectors';
+
